@@ -1,28 +1,45 @@
-// Sample JavaScript for gymkhana web app
+// JavaScript for the riddle game
 
-// Dummy data for events and results
-const eventsData = [
-    { name: 'Obstacle Race', winner: 'John Doe' },
-    { name: 'Sack Race', winner: 'Jane Smith' },
-    // Add more event data as needed
+// Riddle and answer data
+const riddles = [
+    { question: "What has keys but can't open locks?", answer: "Piano" },
+    { question: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?", answer: "Echo" },
+    // Add more riddles and answers as needed
 ];
 
-// Function to display events
-function displayEvents() {
-    const eventsList = document.getElementById('events-list');
-    eventsList.innerHTML = ''; // Clear previous content
-    eventsData.forEach(event => {
-        const li = document.createElement('li');
-        li.textContent = `${event.name} - Winner: ${event.winner}`;
-        eventsList.appendChild(li);
-    });
+let currentRiddleIndex = 0;
+
+// Function to display riddle
+function displayRiddle() {
+    const riddleText = document.getElementById('riddle-text');
+    const userInput = document.getElementById('user-answer');
+    const resultMessage = document.getElementById('result-message');
+
+    if (currentRiddleIndex < riddles.length) {
+        riddleText.textContent = riddles[currentRiddleIndex].question;
+        userInput.value = ''; // Clear previous user input
+        resultMessage.textContent = ''; // Clear previous result message
+    } else {
+        riddleText.textContent = "Congratulations! You've completed all the riddles.";
+        userInput.style.display = 'none'; // Hide input field
+    }
 }
 
-// Function to display results
-function displayResults() {
-    const resultsList = document.getElementById('results-list');
-    resultsList.innerHTML = ''; // Clear previous content
-    // Display results here using resultsData
-    resultsList.textContent = 'Results will be displayed here'; // Example placeholder
+// Function to check user's answer
+function checkAnswer() {
+    const userInput = document.getElementById('user-answer').value.toLowerCase();
+    const correctAnswer = riddles[currentRiddleIndex].answer.toLowerCase();
+    const resultMessage = document.getElementById('result-message');
+
+    if (userInput === correctAnswer) {
+        resultMessage.textContent = 'Correct! Well done!';
+    } else {
+        resultMessage.textContent = 'Incorrect. Try again!';
+    }
+
+    currentRiddleIndex++;
+    setTimeout(displayRiddle, 2000); // Display next riddle after 2 seconds
 }
 
+// Initial display of the first riddle
+displayRiddle();
