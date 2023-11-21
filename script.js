@@ -10,6 +10,7 @@ const eventsData = [
 // Function to display events
 function displayEvents() {
     const eventsList = document.getElementById('events-list');
+    eventsList.innerHTML = ''; // Clear previous content
     eventsData.forEach(event => {
         const li = document.createElement('li');
         li.textContent = `${event.name} - Winner: ${event.winner}`;
@@ -20,10 +21,8 @@ function displayEvents() {
 // Function to display results
 function displayResults() {
     const resultsList = document.getElementById('results-list');
+    resultsList.innerHTML = ''; // Clear previous content
     // Display results here using resultsData
     resultsList.textContent = 'Results will be displayed here'; // Example placeholder
 }
 
-// Call functions to display events and results
-displayEvents();
-displayResults();
