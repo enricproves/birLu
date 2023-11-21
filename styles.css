@@ -1,4 +1,4 @@
-/* Styles for the gymkhana web app */
+/* Updated styles for mobile-friendly gymkhana web app */
 
 body {
     font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@ header, footer {
 }
 
 main {
-    padding: 20px;
+    padding: 10px;
 }
 
 section {
@@ -28,6 +28,18 @@ ul {
 
 li {
     margin-bottom: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #results-list {
