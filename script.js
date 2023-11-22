@@ -7,11 +7,9 @@ function startRiddleGame() {
     displayRiddle(); // Start displaying riddles
 }
 
-function startAudio() {
-    document.getElementById('start-button').addEventListener('click', function() {
-        document.getElementById('birthday-audio').play();
-    });   
-}
+document.getElementById('startAudio').addEventListener('click', function() {
+    document.getElementById('birthday-audio').play();
+});
 
 // Riddle and answer data
 const riddles = [
