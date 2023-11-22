@@ -1,5 +1,12 @@
 // JavaScript for the riddle game
 
+// Function to start the riddle game
+function startRiddleGame() {
+    document.getElementById('birthday-screen').style.display = 'none';
+    document.getElementById('riddle').style.display = 'block';
+    displayRiddle(); // Start displaying riddles
+}
+
 // Riddle and answer data
 const riddles = [
     { question: "What has keys but can't open locks?", answer: "Piano" },
@@ -41,5 +48,3 @@ function checkAnswer() {
     setTimeout(displayRiddle, 2000); // Display next riddle after 2 seconds
 }
 
-// Initial display of the first riddle
-displayRiddle();
