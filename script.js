@@ -38,16 +38,21 @@ function displayRiddle() {
     const riddleText = document.getElementById('riddle-text');
     const userInput = document.getElementById('user-answer');
     const resultMessage = document.getElementById('result-message');
+    const completionGif = document.getElementById('completion-gif');
 
     if (currentRiddleIndex < riddles.length) {
         riddleText.textContent = riddles[currentRiddleIndex].question;
         userInput.value = ''; // Clear previous user input
         resultMessage.textContent = ''; // Clear previous result message
+        completionGif.style.display = 'none'; // Hide the GIF if it was displayed previously
     } else {
         riddleText.textContent = "Congratulations! You've completed all the riddles.";
         userInput.style.display = 'none'; // Hide input field
+        completionGif.src = 'congratulations-african.gif'; // Replace 'completion.gif' with your GIF file
+        completionGif.style.display = 'block'; // Display the GIF
     }
 }
+
 
 // Function to check user's answer
 function checkAnswer() {
