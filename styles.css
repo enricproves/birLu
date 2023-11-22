@@ -36,6 +36,46 @@ header {
     width: 100%;
 }
 
+
+.birthday-animation {
+    position: relative;
+    overflow: hidden;
+    height: 300px; /* Adjust the height to fit the animation */
+}
+
+.balloons {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 150px;
+    background-image: url('balloons.png'); /* Replace 'balloons.png' with your image */
+    background-size: contain;
+    animation: floatBalloons 10s linear infinite;
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('confetti.png'); /* Replace 'confetti.png' with your image */
+    background-size: cover;
+    animation: fallConfetti 5s linear infinite;
+}
+
+@keyframes floatBalloons {
+    0% { transform: translate(-50%, -100px); }
+    100% { transform: translate(-50%, 100vh); }
+}
+
+@keyframes fallConfetti {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
 button {
     display: block;
     width: 100%;
