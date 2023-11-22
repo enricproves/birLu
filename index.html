@@ -16,7 +16,13 @@
     <main>
         <section id="birthday-screen" style="text-align: center;">
             <h2>Happy Birthday Song</h2>
-            <audio id="birthday-audio" src="happy_birthday.mp3" preload="auto" autoplay loop></audio>
+            <audio id="birthday-audio" preload="auto" autoplay loop>
+                <source src="happy_birthday.mp3" type="audio/mpeg">
+                <source src="happy_birthday.ogg" type="audio/ogg">
+                <!-- Add more source elements as needed for different formats -->
+                Your browser does not support the audio element.
+            </audio>
+
             <p>Press the button to stop the song and start playing the riddle game!</p>
             <button onclick="startRiddleGame()">Start Game</button>
         </section>
