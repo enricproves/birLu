@@ -23,7 +23,11 @@ document.getElementById('startAudio').addEventListener('click', function() {
 // Riddle and answer data
 const riddles = [
     { question: "What has keys but can't open locks?", answer: "Piano" },
+    { question: "Which is Lu's power animal?", answer: "Squirrel" },
     { question: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?", answer: "Echo" },
+    { question: "The more you take, the more you leave behind. What am I?", answer: "Footsteps" },
+    { question: "I am not alive, but I can grow. I don't have lungs, but I need air. What am I?", answer: "Fire" },
+    { question: "I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person. What am I?", answer: "Pencil" }      
     // Add more riddles and answers as needed
 ];
 
