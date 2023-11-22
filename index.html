@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Riddle Game</title>
+    <title>BirLu Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,7 +14,7 @@
     </header>
 
     <main>
-        <section id="birthday-screen" style="text-align: center;">
+        <section id="birthday-screen" class="birthday-section">
             <h2>Happy Birthday Song</h2>
             <audio id="birthday-audio" preload="auto" autoplay loop>
                 <source src="happy_birthday.mp3" type="audio/mpeg">
@@ -28,7 +28,7 @@
             <button onclick="startRiddleGame()">Start Game</button>
         </section>
 
-        <section id="riddle" style="display: none;">
+        <section id="riddle" class="birthday-section">
             <h2>Riddle</h2>
             <p id="riddle-text">What has keys but can't open locks?</p>
             <input type="text" id="user-answer" placeholder="Your Answer">
