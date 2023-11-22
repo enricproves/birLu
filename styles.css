@@ -1,33 +1,39 @@
-/* Updated styles for mobile-friendly gymkhana web app */
+/* Updated styles for the birthday-themed riddle game */
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #fce3d9; /* Soft peach background */
 }
 
-header, footer {
-    background-color: #333;
-    color: #fff;
+header {
+    background-color: #f48fb1; /* Light pink header */
+    color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
-main {
+.main {
     padding: 10px;
 }
 
-section {
+.birthday-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 5px;
+.birthday-footer {
+    background-color: #f48fb1; /* Light pink footer */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 button {
@@ -35,16 +41,11 @@ button {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #007bff;
+    background-color: #ffcc80; /* Light orange button */
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#results-list {
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
-/* Add more styles as needed */
+/* Add more styles as needed for a birthday theme (balloons, confetti, etc.) */
