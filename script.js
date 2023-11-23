@@ -1,3 +1,4 @@
+/*
 document.addEventListener('DOMContentLoaded', function() {
     const audio = document.getElementById('birthday-audio');
     const startAudioButton = document.getElementById('startAudio');
@@ -10,7 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+*/
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('startAudio').addEventListener('click', function() {
+        document.getElementById('birthday-audio').play();
+    });
+});
 
 // Your existing JavaScript code for the riddle game goes here
 // Make sure to include the existing logic for the riddles, startRiddleGame(), displayRiddle(), checkAnswer(), etc.
