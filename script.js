@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('startAudio').addEventListener('click', function() {
-        document.getElementById('birthday-audio').play();
+    const audio = document.getElementById('birthday-audio');
+    const startAudioButton = document.getElementById('startAudio');
+
+    startAudioButton.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play(); // If audio is paused, play it
+        } else {
+            audio.pause(); // If audio is playing, pause it
+        }
     });
 });
 
