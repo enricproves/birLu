@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let dy = 0;
 
     const snakeHeadImg = new Image();
-    snakeHeadImg.src = 'balloons.png'; // Path to snake head image
+    snakeHeadImg.src = 'LuSnake.png'; // Path to snake head image
 
     const fruitImg = new Image();
     fruitImg.src = 'whiteChipCookie.png'; // Path to fruit image
