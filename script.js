@@ -188,17 +188,20 @@ function displayRiddle() {
     const userInput = document.getElementById('user-answer');
     const resultMessage = document.getElementById('result-message');
     const completionGif = document.getElementById('completion-gif');
+    const correctAnswerImg = document.getElementById('correctAnswerLu');
 
     if (currentRiddleIndex < riddles.length) {
         riddleText.textContent = riddles[currentRiddleIndex].question;
         userInput.value = ''; // Clear previous user input
         resultMessage.textContent = ''; // Clear previous result message
         completionGif.style.display = 'none'; // Hide the GIF if it was displayed previously
+        correctAnswerImg.style.display = 'none'; // Hide the image if it was displayed previously
     } else {
         riddleText.textContent = "Congratulations! You've completed all the riddles.";
         userInput.style.display = 'none'; // Hide input field
         completionGif.src = 'congratulations-african.gif'; // Replace 'completion.gif' with your GIF file
         completionGif.style.display = 'block'; // Display the GIF
+        correctAnswerImg.style.display = 'none'; // Hide the image if it was displayed previously
     }
 }
 
@@ -211,6 +214,7 @@ function checkAnswer() {
 
     if (userInput === correctAnswer) {
         resultMessage.textContent = 'Correct! Well done!';
+        correctAnswerImg.style.display = 'block'; // Display the image
     } else {
         resultMessage.textContent = 'Incorrect. Try again!';
     }
