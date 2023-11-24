@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     startSnakeButton.addEventListener('click', function() {
         initialScreen.style.display = 'none'; // Hide initial screen
         snakeCanvas.style.display = 'block'; // Display Snake canvas
+        // Reset score to 0 when starting the game
+        score = 0;
+        scoreMessage.innerText = 'Score: ' + score;
         scoreMessage.style.display = 'block'; // Display score
         document.addEventListener('keydown', changeDirection); // Listen for arrow key presses
         setInterval(gameLoop, 100); // Start the game loop
