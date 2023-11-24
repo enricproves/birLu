@@ -129,12 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Draw the snake's head as an image
         ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 10, 10);
 
-        /*        
+              
         ctx.fillStyle = 'black';
         snake.forEach(segment => {
             ctx.fillRect(segment.x * 10, segment.y * 10, 10, 10);
         });
-        */
+        
     }
 
     function drawFood() {
