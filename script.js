@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const scoreMessage = document.getElementById('score');
     const ctx = snakeCanvas.getContext('2d');
 
-    let snake = [{ x: 10, y: 10 }]; // Initial snake position
-    let food = { x: 15, y: 15 }; // Initial food position
+    let snake = [{ x: 40, y: 40 }]; // Initial snake position
+    let food = { x: 60, y: 60 }; // Initial food position
     let dx = 1; // Movement direction (initially to the right)
     let dy = 0;
 
