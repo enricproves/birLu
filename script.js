@@ -1,24 +1,13 @@
-
-document.addEventListener('DOMContentLoaded', function() {
-    const audio = document.getElementById('birthday-audio');
-    const startAudioButton = document.getElementById('startAudio');
-    let score = 0; // Initialize score
-
-    startAudioButton.addEventListener('click', function() {
-        if (audio.paused) {
-            audio.play(); // If audio is paused, play it
-        } else {
-            audio.pause(); // If audio is playing, pause it
-        }
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     const startSnakeButton = document.getElementById('startSnakeButton');
     const initialScreen = document.getElementById('initialScreen');
     const snakeCanvas = document.getElementById('snakeCanvas');
     const scoreMessage = document.getElementById('score');
     const ctx = snakeCanvas.getContext('2d');
+
+    const audio = document.getElementById('birthday-audio');
+    const startAudioButton = document.getElementById('startAudio');
+    let score = 0; // Initialize score
 
     let snake = [{ x: 5, y: 5 }]; // Update initial snake position
     let food = { x: 10, y: 10 }; // Update initial food position
@@ -33,6 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
     fruitImg.src = 'whiteChipCookie.png'; // Path to fruit image
 
     const eatFruitSound = document.getElementById('eatFruitSound');
+
+    startAudioButton.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play(); // If audio is paused, play it
+        } else {
+            audio.pause(); // If audio is playing, pause it
+        }
+    });
     
     startSnakeButton.addEventListener('click', function() {
         initialScreen.style.display = 'none'; // Hide initial screen
@@ -155,11 +152,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Draw the fruit as an image with an enlarged size
         ctx.drawImage(fruitImg, food.x * 25, food.y * 25, 25, 25);
     }
+    
+    // Function to set canvas dimensions based on window size
+    function setCanvasSize() {
+        const canvas = document.getElementById('snakeCanvas');
+        canvas.width = window.innerWidth; // Set canvas width to window width
+        canvas.height = window.innerHeight; // Set canvas height to window height
+    }
 
-        
+     setCanvasSize(); // Set canvas size on page load
+
+    window.addEventListener('resize', function() {
+        setCanvasSize(); // Adjust canvas size on window resize
+    });
+
 });
-// Your existing JavaScript code for the riddle game goes here
-// Make sure to include the existing logic for the riddles, startRiddleGame(), displayRiddle(), checkAnswer(), etc.
+
+
 
 // JavaScript for the riddle game
 
@@ -170,9 +179,6 @@ function startRiddleGame() {
     displayRiddle(); // Start displaying riddles
 }
 
-//document.getElementById('startAudio').addEventListener('click', function() {
-//    document.getElementById('birthday-audio').play();
-//});
 
 // Riddle and answer data
 const riddles = [
