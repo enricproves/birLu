@@ -23,6 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let dx = 1; // Movement direction (initially to the right)
     let dy = 0;
 
+    const snakeHeadImg = new Image();
+    snakeHeadImg.src = 'LuSnake.png'; // Path to snake head image
+
+    const fruitImg = new Image();
+    fruitImg.src = 'WhiteChipCookie.png'; // Path to fruit image
+
+
     startSnakeButton.addEventListener('click', function() {
         initialScreen.style.display = 'none'; // Hide initial screen
         snakeCanvas.style.display = 'block'; // Display Snake canvas
@@ -119,6 +126,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function drawSnake() {
+        // Draw the snake's head as an image
+        ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 10, 10);
+
         ctx.fillStyle = 'black';
         snake.forEach(segment => {
             ctx.fillRect(segment.x * 10, segment.y * 10, 10, 10);
@@ -126,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function drawFood() {
-        ctx.fillStyle = 'red';
-        ctx.fillRect(food.x * 10, food.y * 10, 10, 10);
+        // Draw the fruit as an image
+        ctx.drawImage(fruitImg, food.x * 10, food.y * 10, 10, 10);
     }
 });
 
