@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const fruitImg = new Image();
     fruitImg.src = 'whiteChipCookie.png'; // Path to fruit image
 
-
+    const eatFruitSound = document.getElementById('eatFruitSound');
+    
     startSnakeButton.addEventListener('click', function() {
         initialScreen.style.display = 'none'; // Hide initial screen
         snakeCanvas.style.display = 'block'; // Display Snake canvas
@@ -119,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Check if the snake has eaten the food
         if (newHead.x === food.x && newHead.y === food.y) {
+            // Play sound effect when the snake eats the food
+            eatFruitSound.play();
             // Increase score and update score display
             score++;
             document.getElementById('score').innerText = 'Score: ' + score;
