@@ -12,13 +12,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-/*
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('startAudio').addEventListener('click', function() {
-        document.getElementById('birthday-audio').play();
+    const startSnakeButton = document.getElementById('startSnakeButton');
+    const initialScreen = document.getElementById('initialScreen');
+    const snakeCanvas = document.getElementById('snakeCanvas');
+    const ctx = snakeCanvas.getContext('2d');
+
+    startSnakeButton.addEventListener('click', function() {
+        initialScreen.style.display = 'none'; // Hide initial screen
+        snakeCanvas.style.display = 'block'; // Display Snake canvas
+
+        // Replace the following with your Snake game logic or function call
+        // For example, a simple demonstration:
+        startSnakeGame(); // Call function to start Snake game
     });
+
+    function startSnakeGame() {
+        // Add your Snake game logic or function here...
+        // Example: Drawing a simple rectangle for demonstration
+        ctx.fillStyle = 'black';
+        ctx.fillRect(10, 10, 10, 10);
+    }
+
+    // Add your Snake game logic or function here...
+
 });
-*/
+
 // Your existing JavaScript code for the riddle game goes here
 // Make sure to include the existing logic for the riddles, startRiddleGame(), displayRiddle(), checkAnswer(), etc.
 
