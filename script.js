@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             snake.slice(1).some(segment => segment.x === newHead.x && segment.y === newHead.y)) {
             // End the game
             alert('Game Over!');
-            stopGame(); // Call the function to stop the game
+            document.location.reload(); // Reload the page to restart the game
         }
 
         // Check if the snake has eaten the food
@@ -153,25 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.drawImage(fruitImg, food.x * 25, food.y * 25, 25, 25);
     }
 
-    function stopGame() {
-        clearInterval(gameInterval); // Clear the interval to stop the game loop
         
-        // Additional cleanup or reset if needed
-        // ...
-
-        // Show the initial screen and reset the game elements
-        document.getElementById('initialScreen').style.display = 'block';
-        document.getElementById('riddle').style.display = 'none';
-        document.getElementById('birthday-screen').style.display = 'block';
-        document.getElementById('snakeCanvas').style.display = 'none';
-        document.getElementById('score').style.display = 'none';
-    }
-
-    // Handle the popstate event (user pressing back button)
-    window.addEventListener('popstate', function(event) {
-        stopGame(); // Stop the game when the back button is pressed
-    });
-    
 });
 // Your existing JavaScript code for the riddle game goes here
 // Make sure to include the existing logic for the riddles, startRiddleGame(), displayRiddle(), checkAnswer(), etc.
