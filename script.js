@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.drawImage(snakeHeadImg, snake[0].x * 25, snake[0].y * 25, 25, 25);  
 
         // Draw additional snake segments based on its length (after the head) with an enlarged size
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'green';
         snake.slice(1).forEach(segment => {
             ctx.fillRect(segment.x * 25, segment.y * 25, 25, 25);
         });
