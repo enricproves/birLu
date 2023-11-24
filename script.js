@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let dy = 0;
 
     const snakeHeadImg = new Image();
-    snakeHeadImg.src = 'confetti.png'; // Path to snake head image
+    snakeHeadImg.src = 'balloons.png'; // Path to snake head image
 
     const fruitImg = new Image();
-    fruitImg.src = 'balloons.png'; // Path to fruit image
+    fruitImg.src = 'whiteChipCookie.png'; // Path to fruit image
 
 
     startSnakeButton.addEventListener('click', function() {
@@ -129,10 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Draw the snake's head as an image
         ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 10, 10);
 
+        /*        
         ctx.fillStyle = 'black';
         snake.forEach(segment => {
             ctx.fillRect(segment.x * 10, segment.y * 10, 10, 10);
         });
+        */
     }
 
     function drawFood() {
