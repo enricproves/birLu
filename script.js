@@ -234,13 +234,13 @@ function checkAnswer() {
     const correctAnswerImg = document.getElementById('correctAnswerLu');
 
     if (userInput === correctAnswer) {
+        currentRiddleIndex++;
         resultMessage.textContent = 'Correct! Well done!';
         correctAnswerImg.style.display = 'block'; // Display the image
     } else {
         resultMessage.textContent = 'Incorrect. Try again!';
     }
 
-    currentRiddleIndex++;
     setTimeout(displayRiddle, 2000); // Display next riddle after 2 seconds
 }
 
