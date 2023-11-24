@@ -211,6 +211,7 @@ function checkAnswer() {
     const userInput = document.getElementById('user-answer').value.toLowerCase();
     const correctAnswer = riddles[currentRiddleIndex].answer.toLowerCase();
     const resultMessage = document.getElementById('result-message');
+    const correctAnswerImg = document.getElementById('correctAnswerLu');
 
     if (userInput === correctAnswer) {
         resultMessage.textContent = 'Correct! Well done!';
