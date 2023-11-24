@@ -135,18 +135,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function drawSnake() {
         // Draw the snake's head as an image
-        ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 10, 10);  
+        ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 40, 40);  
 
         // Draw additional snake segments based on its length (after the head)
         ctx.fillStyle = 'black';
         snake.slice(1).forEach(segment => {
-            ctx.fillRect(segment.x * 10, segment.y * 10, 10, 10);
+            ctx.fillRect(segment.x * 10, segment.y * 10, 40, 40);
         });
     }
 
     function drawFood() {
         // Draw the fruit as an image
-        ctx.drawImage(fruitImg, food.x * 10, food.y * 10, 10, 10);
+        ctx.drawImage(fruitImg, food.x * 10, food.y * 10, 40, 40);
     }
 });
 
