@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let dy = 0;
 
     const snakeHeadImg = new Image();
-    snakeHeadImg.src = 'LuSnake.jpg'; // Path to snake head image
+    snakeHeadImg.src = 'confetti.png'; // Path to snake head image
 
     const fruitImg = new Image();
-    fruitImg.src = 'WhiteChipCookie.jpg'; // Path to fruit image
+    fruitImg.src = 'balloons.png'; // Path to fruit image
 
 
     startSnakeButton.addEventListener('click', function() {
