@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const startSnakeButton = document.getElementById('startSnakeButton');
     const initialScreen = document.getElementById('initialScreen');
     const snakeCanvas = document.getElementById('snakeCanvas');
+    const scoreMessage = document.getElementById('score');
     const ctx = snakeCanvas.getContext('2d');
 
     let snake = [{ x: 10, y: 10 }]; // Initial snake position
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     startSnakeButton.addEventListener('click', function() {
         initialScreen.style.display = 'none'; // Hide initial screen
         snakeCanvas.style.display = 'block'; // Display Snake canvas
+        scoreMessage.style.display = 'block'; // Display score
         document.addEventListener('keydown', changeDirection); // Listen for arrow key presses
         setInterval(gameLoop, 100); // Start the game loop
         snakeCanvas.addEventListener('touchstart', handleTouchStart);
