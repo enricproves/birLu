@@ -114,14 +114,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Check if the snake has eaten the food
-        if (newHead.x === food.x && newHead.y === food.y) {
+         if (newHead.x === food.x && newHead.y === food.y) {
             // Increase score and update score display
             score++;
             document.getElementById('score').innerText = 'Score: ' + score;
 
             // Increase snake length and place new food
-            snake.unshift({ x: food.x, y: food.y }); // Add new segment to snake's head
-            food = { x: Math.floor(Math.random() * (snakeCanvas.width / 10)), y: Math.floor(Math.random() * (snakeCanvas.height / 10)) };
+            // Modify the growth logic to match the enlarged size (20x20)
+            snake.unshift(
+                { x: newHead.x + dx, y: newHead.y + dy },
+                { x: newHead.x + 2 * dx, y: newHead.y + 2 * dy }
+            );
+            food = {
+                x: Math.floor(Math.random() * (snakeCanvas.width / 10)),
+                y: Math.floor(Math.random() * (snakeCanvas.height / 10))
+            };
         } else {
             // Remove the tail segment if the snake hasn't eaten food
             snake.pop();
@@ -135,18 +142,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function drawSnake() {
         // Draw the snake's head as an image
-        ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 40, 40);  
+        ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 4*10, 4*10);  
 
         // Draw additional snake segments based on its length (after the head)
         ctx.fillStyle = 'black';
         snake.slice(1).forEach(segment => {
-            ctx.fillRect(segment.x * 10, segment.y * 10, 40, 40);
+            ctx.fillRect(segment.x * 10, segment.y * 10, 4*10, 4*10);
         });
     }
 
     function drawFood() {
         // Draw the fruit as an image
-        ctx.drawImage(fruitImg, food.x * 10, food.y * 10, 40, 40);
+        ctx.drawImage(fruitImg, food.x * 10, food.y * 10, 4*10, 4*10);
     }
 });
 
