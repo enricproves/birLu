@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const audio = document.getElementById('birthday-audio');
     const startAudioButton = document.getElementById('startAudio');
+    let score = 0; // Initialize score
 
     startAudioButton.addEventListener('click', function() {
         if (audio.paused) {
@@ -112,7 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Check if the snake has eaten the food
         if (newHead.x === food.x && newHead.y === food.y) {
+            // Increase score and update score display
+            score++;
+            document.getElementById('score').innerText = 'Score: ' + score;
+
             // Increase snake length and place new food
+            snake.unshift({ x: food.x, y: food.y }); // Add new segment to snake's head
             food = { x: Math.floor(Math.random() * (snakeCanvas.width / 10)), y: Math.floor(Math.random() * (snakeCanvas.height / 10)) };
         } else {
             // Remove the tail segment if the snake hasn't eaten food
@@ -127,14 +133,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function drawSnake() {
         // Draw the snake's head as an image
-        ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 10, 10);
+        ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 10, 10);  
 
-              
+        // Draw additional snake segments based on its length (after the head)
         ctx.fillStyle = 'black';
-        snake.forEach(segment => {
+        snake.slice(1).forEach(segment => {
             ctx.fillRect(segment.x * 10, segment.y * 10, 10, 10);
         });
-        
     }
 
     function drawFood() {
