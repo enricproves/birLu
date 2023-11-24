@@ -40,8 +40,16 @@ document.addEventListener('DOMContentLoaded', function() {
         scoreMessage.style.display = 'block'; // Display score
         document.addEventListener('keydown', changeDirection); // Listen for arrow key presses
         setInterval(gameLoop, 100); // Start the game loop
-        snakeCanvas.addEventListener('touchstart', handleTouchStart);
-        snakeCanvas.addEventListener('touchmove', handleTouchMove);
+        
+        snakeCanvas.addEventListener('touchstart', function(event) {
+            event.preventDefault(); // Prevent default behavior (scrolling)
+            handleTouchStart(event);
+        });
+    
+        snakeCanvas.addEventListener('touchmove', function(event) {
+            event.preventDefault(); // Prevent default behavior (scrolling)
+            handleTouchMove(event);
+        });
     });
 
     function handleTouchStart(event) {
