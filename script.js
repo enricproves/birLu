@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const fruitImg = new Image();
     fruitImg.src = 'whiteChipCookie.png'; // Path to fruit image
 
+    // Prevent default touchmove behavior to avoid scrolling on the canvas
+    snakeCanvas.addEventListener('touchmove', function(event) {
+        event.preventDefault();
+    });
+
 
     startSnakeButton.addEventListener('click', function() {
         initialScreen.style.display = 'none'; // Hide initial screen
