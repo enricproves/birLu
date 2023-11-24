@@ -28,7 +28,48 @@ document.addEventListener('DOMContentLoaded', function() {
         snakeCanvas.style.display = 'block'; // Display Snake canvas
         document.addEventListener('keydown', changeDirection); // Listen for arrow key presses
         setInterval(gameLoop, 100); // Start the game loop
+        snakeCanvas.addEventListener('touchstart', handleTouchStart);
+        snakeCanvas.addEventListener('touchmove', handleTouchMove);
     });
+
+    function handleTouchStart(event) {
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+    }
+
+    function handleTouchMove(event) {
+        if (!touchStartX || !touchStartY) {
+            return;
+        }
+
+        const touchEndX = event.touches[0].clientX;
+        const touchEndY = event.touches[0].clientY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            // Horizontal swipe
+            if (deltaX > 0 && dx !== -1) {
+                dx = 1;
+                dy = 0;
+            } else if (deltaX < 0 && dx !== 1) {
+                dx = -1;
+                dy = 0;
+            }
+        } else {
+            // Vertical swipe
+            if (deltaY > 0 && dy !== -1) {
+                dx = 0;
+                dy = 1;
+            } else if (deltaY < 0 && dy !== 1) {
+                dx = 0;
+                dy = -1;
+            }
+        }
+
+        touchStartX = 0;
+        touchStartY = 0;
+    }
 
     function changeDirection(event) {
         const keyPressed = event.key;
