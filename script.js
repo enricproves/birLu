@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Modify the growth logic to match the enlarged size (20x20)
             snake.unshift(
                 { x: newHead.x + dx, y: newHead.y + dy },
-                { x: newHead.x + 2 * dx, y: newHead.y + 2 * dy }
+                { x: newHead.x + 4 * dx, y: newHead.y + 4 * dy }
             );
             food = {
                 x: Math.floor(Math.random() * (snakeCanvas.width / 10)),
