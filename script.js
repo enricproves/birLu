@@ -184,6 +184,19 @@ document.addEventListener('DOMContentLoaded', function() {
 function startRiddleGame() {
     document.getElementById('birthday-screen').style.display = 'none';
     document.getElementById('riddle').style.display = 'block';
+
+    // Add an event listener for the back button press
+    window.addEventListener('popstate', function(event) {
+        initialScreen.style.display = 'block'; // Show the initial screen
+        document.getElementById('riddle').style.display = 'none'; // Hide the riddle section
+        document.getElementById('snakeCanvas').style.display = 'none'; // Hide the snake game canvas
+        scoreMessage.style.display = 'none'; // Hide the score
+        audio.pause(); // Pause the audio if it's playing
+        clearInterval(intervalId); // Stop the game loop if it's running
+
+        // You may need to perform additional cleanup or reset game state here if required
+    });
+    
     displayRiddle(); // Start displaying riddles
 }
 
