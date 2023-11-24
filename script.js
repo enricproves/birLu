@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     snakeHeadImg.src = 'LuSnake.jpg'; // Path to snake head image
 
     const fruitImg = new Image();
-    fruitImg.src = 'WhiteChipCookie.png'; // Path to fruit image
+    fruitImg.src = 'WhiteChipCookie.jpg'; // Path to fruit image
 
 
     startSnakeButton.addEventListener('click', function() {
