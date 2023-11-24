@@ -191,6 +191,8 @@ function displayRiddle() {
     const resultMessage = document.getElementById('result-message');
     const completionGif = document.getElementById('completion-gif');
     const correctAnswerImg = document.getElementById('correctAnswerLu');
+    const startRiddleButton = document.getElementById('startRiddleButton');
+    
 
     if (currentRiddleIndex < riddles.length) {
         riddleText.textContent = riddles[currentRiddleIndex].question;
@@ -204,6 +206,7 @@ function displayRiddle() {
         completionGif.src = 'congratulations-african.gif'; // Replace 'completion.gif' with your GIF file
         completionGif.style.display = 'block'; // Display the GIF
         correctAnswerImg.style.display = 'none'; // Hide the image if it was displayed previously
+        startRiddleButton.style.display = 'none'; // Hide the riddle game button
     }
 }
 
