@@ -106,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
         snake.unshift(newHead); // Add new head to snake
 
         // Check if the snake has collided with the wall or itself (game over conditions)
-        if (newHead.x < 0 || newHead.x >= snakeCanvas.width / 40 ||
-            newHead.y < 0 || newHead.y >= snakeCanvas.height / 40 ||
+        if (newHead.x < 0 || newHead.x >= snakeCanvas.width / 25 ||
+            newHead.y < 0 || newHead.y >= snakeCanvas.height / 25 ||
             snake.slice(1).some(segment => segment.x === newHead.x && segment.y === newHead.y)) {
             // End the game
             alert('Game Over!');
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Increase snake length and place new food
             snake.unshift({ x: food.x, y: food.y }); // Add new segment to snake's head
-            food = { x: Math.floor(Math.random() * (snakeCanvas.width / 40)), y: Math.floor(Math.random() * (snakeCanvas.height / 40)) };
+            food = { x: Math.floor(Math.random() * (snakeCanvas.width / 25)), y: Math.floor(Math.random() * (snakeCanvas.height / 25)) };
         } else {
             // Remove the tail segment if the snake hasn't eaten food
             snake.pop();
@@ -136,18 +136,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function drawSnake() {
         // Draw the snake's head as an image with an enlarged size
-        ctx.drawImage(snakeHeadImg, snake[0].x * 40, snake[0].y * 40, 40, 40);  
+        ctx.drawImage(snakeHeadImg, snake[0].x * 25, snake[0].y * 25, 25, 25);  
 
         // Draw additional snake segments based on its length (after the head) with an enlarged size
         ctx.fillStyle = 'black';
         snake.slice(1).forEach(segment => {
-            ctx.fillRect(segment.x * 40, segment.y * 40, 40, 40);
+            ctx.fillRect(segment.x * 25, segment.y * 25, 25, 25);
         });
     }
 
     function drawFood() {
         // Draw the fruit as an image with an enlarged size
-        ctx.drawImage(fruitImg, food.x * 40, food.y * 40, 40, 40);
+        ctx.drawImage(fruitImg, food.x * 25, food.y * 25, 25, 25);
     }
 });
 // Your existing JavaScript code for the riddle game goes here
