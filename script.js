@@ -105,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
         snake.unshift(newHead); // Add new head to snake
 
         // Check if the snake has collided with the wall or itself (game over conditions)
-        if (newHead.x < 0 || newHead.x >= snakeCanvas.width / 10 ||
-            newHead.y < 0 || newHead.y >= snakeCanvas.height / 10 ||
+        if (newHead.x < 0 || newHead.x >= snakeCanvas.width / 40 ||
+            newHead.y < 0 || newHead.y >= snakeCanvas.height / 40 ||
             snake.slice(1).some(segment => segment.x === newHead.x && segment.y === newHead.y)) {
             // End the game
             alert('Game Over!');
@@ -114,21 +114,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Check if the snake has eaten the food
-         if (newHead.x === food.x && newHead.y === food.y) {
+        if (newHead.x === food.x && newHead.y === food.y) {
             // Increase score and update score display
             score++;
             document.getElementById('score').innerText = 'Score: ' + score;
-
+            
             // Increase snake length and place new food
-            // Modify the growth logic to match the enlarged size (20x20)
-            snake.unshift(
-                { x: newHead.x + dx, y: newHead.y + dy },
-                { x: newHead.x + 4 * dx, y: newHead.y + 4 * dy }
-            );
-            food = {
-                x: Math.floor(Math.random() * (snakeCanvas.width / 10)),
-                y: Math.floor(Math.random() * (snakeCanvas.height / 10))
-            };
+            snake.unshift({ x: food.x, y: food.y }); // Add new segment to snake's head
+            food = { x: Math.floor(Math.random() * (snakeCanvas.width / 40)), y: Math.floor(Math.random() * (snakeCanvas.height / 40)) };
         } else {
             // Remove the tail segment if the snake hasn't eaten food
             snake.pop();
@@ -141,22 +134,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function drawSnake() {
-        // Draw the snake's head as an image
-        ctx.drawImage(snakeHeadImg, snake[0].x * 10, snake[0].y * 10, 4*10, 4*10);  
+        // Draw the snake's head as an image with an enlarged size
+        ctx.drawImage(snakeHeadImg, snake[0].x * 40, snake[0].y * 40, 40, 40);  
 
-        // Draw additional snake segments based on its length (after the head)
+        // Draw additional snake segments based on its length (after the head) with an enlarged size
         ctx.fillStyle = 'black';
         snake.slice(1).forEach(segment => {
-            ctx.fillRect(segment.x * 10, segment.y * 10, 4*10, 4*10);
+            ctx.fillRect(segment.x * 40, segment.y * 40, 40, 40);
         });
     }
 
     function drawFood() {
-        // Draw the fruit as an image
-        ctx.drawImage(fruitImg, food.x * 10, food.y * 10, 4*10, 4*10);
+        // Draw the fruit as an image with an enlarged size
+        ctx.drawImage(fruitImg, food.x * 40, food.y * 40, 40, 40);
     }
 });
-
 // Your existing JavaScript code for the riddle game goes here
 // Make sure to include the existing logic for the riddles, startRiddleGame(), displayRiddle(), checkAnswer(), etc.
 
