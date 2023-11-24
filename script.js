@@ -18,24 +18,76 @@ document.addEventListener('DOMContentLoaded', function() {
     const snakeCanvas = document.getElementById('snakeCanvas');
     const ctx = snakeCanvas.getContext('2d');
 
+    let snake = [{ x: 10, y: 10 }]; // Initial snake position
+    let food = { x: 15, y: 15 }; // Initial food position
+    let dx = 1; // Movement direction (initially to the right)
+    let dy = 0;
+
     startSnakeButton.addEventListener('click', function() {
         initialScreen.style.display = 'none'; // Hide initial screen
         snakeCanvas.style.display = 'block'; // Display Snake canvas
-
-        // Replace the following with your Snake game logic or function call
-        // For example, a simple demonstration:
-        startSnakeGame(); // Call function to start Snake game
+        document.addEventListener('keydown', changeDirection); // Listen for arrow key presses
+        setInterval(gameLoop, 100); // Start the game loop
     });
 
-    function startSnakeGame() {
-        // Add your Snake game logic or function here...
-        // Example: Drawing a simple rectangle for demonstration
-        ctx.fillStyle = 'black';
-        ctx.fillRect(10, 10, 10, 10);
+    function changeDirection(event) {
+        const keyPressed = event.key;
+        // Set direction based on arrow keys (up, down, left, right)
+        if (keyPressed === 'ArrowUp' && dy !== 1) {
+            dx = 0;
+            dy = -1;
+        } else if (keyPressed === 'ArrowDown' && dy !== -1) {
+            dx = 0;
+            dy = 1;
+        } else if (keyPressed === 'ArrowLeft' && dx !== 1) {
+            dx = -1;
+            dy = 0;
+        } else if (keyPressed === 'ArrowRight' && dx !== -1) {
+            dx = 1;
+            dy = 0;
+        }
     }
 
-    // Add your Snake game logic or function here...
+    function gameLoop() {
+        // Update snake position based on direction
+        const newHead = { x: snake[0].x + dx, y: snake[0].y + dy };
+        snake.unshift(newHead); // Add new head to snake
 
+        // Check if the snake has collided with the wall or itself (game over conditions)
+        if (newHead.x < 0 || newHead.x >= snakeCanvas.width / 10 ||
+            newHead.y < 0 || newHead.y >= snakeCanvas.height / 10 ||
+            snake.slice(1).some(segment => segment.x === newHead.x && segment.y === newHead.y)) {
+            // End the game
+            alert('Game Over!');
+            document.location.reload(); // Reload the page to restart the game
+        }
+
+        // Check if the snake has eaten the food
+        if (newHead.x === food.x && newHead.y === food.y) {
+            // Increase snake length and place new food
+            food = { x: Math.floor(Math.random() * (snakeCanvas.width / 10)), y: Math.floor(Math.random() * (snakeCanvas.height / 10)) };
+        } else {
+            // Remove the tail segment if the snake hasn't eaten food
+            snake.pop();
+        }
+
+        // Clear canvas and redraw snake and food
+        ctx.clearRect(0, 0, snakeCanvas.width, snakeCanvas.height);
+        drawSnake();
+        drawFood();
+    }
+
+    function drawSnake() {
+        ctx.fillStyle = 'black';
+        snake.forEach(segment => {
+            ctx.fillRect(segment.x * 10, segment.y * 10, 10, 10);
+        });
+    }
+
+    function drawFood() {
+        ctx.fillStyle = 'red';
+        ctx.fillRect(food.x * 10, food.y * 10, 10, 10);
+    }
 });
 
 // Your existing JavaScript code for the riddle game goes here
